@@ -8,20 +8,7 @@
     <span class="badge">id: {{ item.id }}</span> {{ item.name }}
   </li>
 </ul>
-
-<!-- shows only if selectedHero exists -->
-<div *ngIf="selectedHero">
-    <!-- using the uppercase pipe -->
-    <h2>{{ selectedHero.name | uppercase }} Details</h2>
-    <div><span>id: </span> {{ selectedHero.id }}</div>
-    <div><span>name: </span> {{ selectedHero.name }}</div>
-    <div>
-      <label
-        >name:
-        <!-- two way data binding -->
-        <input [(ngModel)]="selectedHero.name" placeholder="name" />
-      </label>
-    </div>
-  </div>
+<!-- in tandem with @Input to bind hero prop to selectedHero in master component -->
+<app-hero-detail [hero]="selectedHero">Loading...</app-hero-detail>
 
   
