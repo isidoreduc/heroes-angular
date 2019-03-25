@@ -2,5 +2,9 @@
   <!-- interpolation binding -->
   {{ title }}
 </h1>
-<app-heroes>Loading... </app-heroes>
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+<router-outlet></router-outlet>
 <app-messages>Loading...</app-messages>

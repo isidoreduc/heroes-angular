@@ -1,19 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HEROES } from './models/mock-heroes';
-import { Observable, of } from 'rxjs';
-import { Hero } from './models/hero';
-import { MessageService } from './message.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+import { Observable, of } from 'rxjs';
+
+
+import { MessageService } from './message.service';
+import { Hero } from './models/hero';
+import { HEROES } from './models/mock-heroes';
+
+@Injectable({ providedIn: 'root' })
 export class HeroService {
 
-  constructor(private messageServ: MessageService) { }
+  constructor(private messageService: MessageService) { }
 
-  // returning an Observable to which components can subscribe
   getHeroes(): Observable<Hero[]> {
-    this.messageServ.add('HeroService: fetched heroes.');
+    // TODO: send the message _after_ fetching the heroes
+    this.messageService.add('HeroService: fetched heroes');
     return of(HEROES);
+  }
+
+  getHero(id: number): Observable<Hero> {
+    // TODO: send the message _after_ fetching the hero
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(HEROES.find(hero => hero.id === id));
   }
 }
