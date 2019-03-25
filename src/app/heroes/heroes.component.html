@@ -1,0 +1,27 @@
+
+<h2>My heroes</h2>
+<ul class='heroes'>
+  <!-- list display with ngFor, adding css style class conditionally and event binding(click) -->
+  <li *ngFor="let item of heroes" 
+    [class.selected]="item === selectedHero" 
+    (click)="onSelect(item)">
+    <span class="badge">id: {{ item.id }}</span> {{ item.name }}
+  </li>
+</ul>
+
+<!-- shows only if selectedHero exists -->
+<div *ngIf="selectedHero">
+    <!-- using the uppercase pipe -->
+    <h2>{{ selectedHero.name | uppercase }} Details</h2>
+    <div><span>id: </span> {{ selectedHero.id }}</div>
+    <div><span>name: </span> {{ selectedHero.name }}</div>
+    <div>
+      <label
+        >name:
+        <!-- two way data binding -->
+        <input [(ngModel)]="selectedHero.name" placeholder="name" />
+      </label>
+    </div>
+  </div>
+
+  
