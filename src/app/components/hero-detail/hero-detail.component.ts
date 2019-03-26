@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { Hero } from '../models/hero';
-import { HeroService } from '../hero.service';
+import { Hero } from 'src/app/models/hero';
+import { HeroService } from 'src/app/services/hero.service';
 
 
 
